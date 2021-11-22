@@ -34,7 +34,7 @@ let partido1 = {
     nombre: 'Juntos podemos',
     siglas: 'JP',
     logo: '/images/flag1.png',
-    descripcion: 'Descripcion del partido',
+    descripcion: 'Somos un partido que cree en el cambio, y que desea que las generacione porvenir disfruten de esta institución tanto como lo hicimos nosotros. Somos estudiantes de sexto grado que se organizaron para dejar una institución mejor a las generaciones que están estudiann en la escuela y a todos esos con hermanitos menores que pronto van a ingresar. Nuestro enfoque será centrarnos en los mecanismos necesarios para garantizar que los estudiantes que requiren ayuda para poder comprar cuadernos y lapices reciban esa ayuda con fondos obtenidos por medio de distintas actividaes',
     color: '#e9d8a6',
     miembros: [
         {
@@ -53,11 +53,11 @@ let partido1 = {
     ],
     propuestas: [
         {
-            propuesta: 'Propuesta 1'
+            propuesta: 'Compraremos películas piratas en chepe centro apenas salgan y organizaremos días de pelicula donde los estudiantes compren un tiquete y puedan disfrutar de ver la pelicula con sus compañeros. Además ese día la mamá de Juan va a vender palomitas en bolsita.'
         }, {
-            propuesta: 'Propuesta 2'
+            propuesta: 'Queremos tener un trampolín y cobraremos 500 colones por 10 minutos, así todos se pueden divertir jugando en el trampolín y al mismo tiempo reunimos dinero para tener en caso de ser necesario. Eventualmente se pueden realizar suscripciones mensuales por medio de tarjeta de crédito.'
         }, {
-            propuesta: 'Propuesta 3'
+            propuesta: 'Nos indicaron desde la dirección que es ilegal comprar películas piratas en la principal de chepe a Doña Minda, entonces estamos pensando en pedirle la cuenta de Netflix a pedro, también es pirata pero ya no la estaríamos comprando nosotros.'
         }
     ]
 };
