@@ -9,8 +9,20 @@ router.get('/', function (req, res, next) {
 
 
 /* localhost:3000/partido/FA */
-router.get('/:siglas', function (req, res, next) {
-    res.send('Pagina partido especifico');
+// router.get('/:siglas', function (req, res, next) {
+//     res.send('Pagina partido especifico');
+// });
+
+
+/*========== Esto es solo con el proposito de la presentación ==========*/
+/* localhost:3000/partido/jp */
+router.get('/jp', function (req, res, next) {
+    res.render('partido', { partido: partido1 });
+});
+
+/* localhost:3000/partido/udc */
+router.get('/udc', function (req, res, next) {
+    res.render('partido', { partido: partido2 });
 });
 
 module.exports = router;
@@ -23,7 +35,7 @@ let partido1 = {
     logo: 'images/flag1.png',
     desripcion: 'Descripcion del partido',
     color: '#e9d8a6',
-    miembros =[
+    miembros: [
         {
             nombre: 'Brandon',
             apellido: 'Ramirez',
@@ -38,7 +50,7 @@ let partido1 = {
             puesto: 'Tesorero'
         }
     ],
-    propuestas =[
+    propuestas: [
         {
             descripcion: 'Propuesta 1'
         }, {
@@ -56,7 +68,7 @@ let partido2 = {
     logo: 'images/flag2.png',
     desripcion: 'Descripcion del partido',
     color: '#a8dadc',
-    miembros =[
+    miembros: [
         {
             nombre: 'Manuel',
             apellido: 'Chavarria',
@@ -71,7 +83,7 @@ let partido2 = {
             puesto: 'Tesorero'
         }
     ],
-    propuestas =[
+    propuestas: [
         {
             descripcion: 'Propuesta 1'
         }, {
