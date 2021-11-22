@@ -32,8 +32,8 @@ let partido1 = {
     id: 01,
     nombre: 'Juntos podemos',
     siglas: 'JP',
-    logo: 'images/flag1.png',
-    desripcion: 'Descripcion del partido',
+    logo: '/images/flag1.png',
+    descripcion: 'Descripcion del partido',
     color: '#e9d8a6',
     miembros: [
         {
@@ -52,11 +52,11 @@ let partido1 = {
     ],
     propuestas: [
         {
-            descripcion: 'Propuesta 1'
+            propuesta: 'Propuesta 1'
         }, {
-            descripcion: 'Propuesta 2'
+            propuesta: 'Propuesta 2'
         }, {
-            descripcion: 'Propuesta 3'
+            propuesta: 'Propuesta 3'
         }
     ]
 };
@@ -65,8 +65,8 @@ let partido2 = {
     id: 01,
     nombre: 'Unidad Democrática Costarricense',
     siglas: 'UDC',
-    logo: 'images/flag2.png',
-    desripcion: 'Descripcion del partido',
+    logo: '/images/flag2.png',
+    descripcion: 'El partido Unidad Democrática Costarricense se basa en la honradez y la verdad como pilares fundamentales de su campaña política estudiantil. A lo largo de los años hemos visto que la escuela ha carecido del cuido requerido para mantenerla en optimas condiciones para el desarrollo de los niños. Nuestro partido consiste en personas de distintos grados que han sacado notas muy buenas y tienen ideas que se pueden llevar a cabo en el corto y largo plazo para tener resultados palpables.',
     color: '#a8dadc',
     miembros: [
         {
@@ -85,13 +85,13 @@ let partido2 = {
     ],
     propuestas: [
         {
-            descripcion: 'Propuesta 1'
+            propuesta: 'Propuesta 1'
         }, {
-            descripcion: 'Propuesta 2'
+            propuesta: 'Propuesta 2'
         }, {
-            descripcion: 'Propuesta 3'
+            propuesta: 'Propuesta 3'
         }, {
-            descripcion: 'Propuesta 4'
+            propuesta: 'Propuesta 4'
         }
     ]
 };
