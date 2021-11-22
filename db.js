@@ -13,7 +13,7 @@ let config = {
     },
     options: {
         port: 1434,
-        database: 'Testing',
+        database: 'ProyectoDesarrolloWeb',
         rowCollectionOnRequestCompletion: true
     }
 }
@@ -28,5 +28,4 @@ connection.on('connect', function (err) {
 });
 
 connection.connect();
-
 module.exports = { connection };
