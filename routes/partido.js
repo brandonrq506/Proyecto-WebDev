@@ -28,7 +28,7 @@ router.get('/udc', function (req, res, next) {
 
 module.exports = router;
 
-
+//======== DEBEMOS INTENTAR VERIFICAR QUE EL ISSUE  CON LOS LINKS NO SEA EL USO DE '' en lugar de ""
 let partido1 = {
     id: 01,
     nombre: 'Juntos podemos',
