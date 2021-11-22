@@ -5,8 +5,6 @@ const inputBox = document.querySelector('input');
 btnBuscar.addEventListener('click', () => {
     let upperLimit = window.location.href.lastIndexOf('/');
     let rootLink = window.location.href.substring(0, upperLimit);
-    console.log(rootLink);
     let path = '/' + inputBox.value;
-    console.log(path);
     window.location.href = rootLink + path;
 })
