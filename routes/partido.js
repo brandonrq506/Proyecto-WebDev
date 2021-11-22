@@ -86,13 +86,13 @@ let partido2 = {
     ],
     propuestas: [
         {
-            propuesta: 'Propuesta 1'
+            propuesta: 'Velaremos por los derechos y deberes de todos los estudiantes de la escuela, garantizando una buena comunicación entre las necesidades/inconformidades estudiantiles con el personal docente, para así generar un ambiente educativo integro que nos permita disfrutar plenamente de nuestro proceso educativo'
         }, {
-            propuesta: 'Propuesta 2'
+            propuesta: 'Promoveremos la participación en actividades típicas, potennciando iniciativas como una banda para la escuela, grupos de baile que cuenten con una profesa para enseñarles y permiso para faltar a las lecciones que tengan conflicto con las horas de entrenamiento.'
         }, {
-            propuesta: 'Propuesta 3'
+            propuesta: 'Promoveremos un aumento de los espacios para practicar deporte y las zonas para realizar estas actividades. Entendemos que actualmente no se tiene permitido jugar en los corredores ni en la calle, por lo que planeamos hablar con los profesores para que nos concedan un espacio.'
         }, {
-            propuesta: 'Propuesta 4'
+            propuesta: 'Para nuestra financiación haremos comidads una vez al mes con motivo de algun día festivo durante esas fechas.'
         }
     ]
 };

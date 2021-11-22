@@ -21,14 +21,17 @@
                 </a>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
                 </form>
             </div>
         </nav>
 
         <!-- GRID 3 Columnas - Information del partido -->
-        <div class="container">
+        <div class="container" style="border: 1px solid #ebddd0;">
             <div class="row" style="height: 900px;">
+
+
+                <!-- COLUMNA: Descripcion -->
                 <div class="col-lg-5 text-center" style="background-color: #f7eee5;">
                     <div class="d-flex justify-content-center" style="width: 300px; margin: auto; padding-top: 15px;">
                         <img src="/images/stock_photo.jpg" style="display: inline-block;" alt="..." width="286px">
@@ -36,6 +39,9 @@
                     <p class="fs-2">Descripcion</p>
                     <p><%= partido.descripcion %> </p>
                 </div>
+
+
+                <!-- COLUMNA: Imagenes -->
                 <div class="col text-center d-flex flex-column justify-content-evenly align-items-center" style="background-color: #fffdfb;">
                     <% for (const miembro of partido.miembros) { %> 
                     <div class="card" style="width: 18rem;">
@@ -47,9 +53,21 @@
                       </div>
                       <% } %> 
                 </div>
-                <div class="col text-center d-flex flex-column justify-content-evenly align-items-center" style="background-color: #fffdfb;">
-                    <p>Descripcion</p>
-                    <p><%= partido.descripcion %> </p>
+
+
+                <!-- COLUMNA: Propuestas -->
+                <div class="col d-flex flex-column justify-content-evenly align-items-center" style="background-color: #fffdfb;">
+                    <div class="text-center">
+                        <p class="fs-2">Propuestas</p>
+                    </div>
+                    <div class="text-center">
+                        <ul class="list-group list-group-flush list-group-numbered">
+                            <% for (const propuesta of partido.propuestas) { %> 
+                                <li class="list-group-item" style="background-color: #fffdfb;"><%= propuesta.propuesta %> </li>
+                                <% } %> 
+                          </ul>
+                    </div>
+
                 </div>
             </div>
         </div>
