@@ -68,7 +68,7 @@ let partido2 = {
     siglas: 'UDC',
     logo: '/images/flag2.png',
     descripcion: 'El partido Unidad Democrática Costarricense se basa en la honradez y la verdad como pilares fundamentales de su campaña política estudiantil. A lo largo de los años hemos visto que la escuela ha carecido del cuido requerido para mantenerla en optimas condiciones para el desarrollo de los niños. Nuestro partido consiste en personas de distintos grados que han sacado notas muy buenas y tienen ideas que se pueden llevar a cabo en el corto y largo plazo para tener resultados palpables.',
-    color: '#a8dadc',
+    color: '#f7eee5',
     miembros: [
         {
             nombre: 'Manuel',
