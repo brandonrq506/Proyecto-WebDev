@@ -18,7 +18,6 @@
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand"><%=partido.nombre%>
-                    <img src="<%imgsf%>" alt="">
                 </a>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -30,34 +29,25 @@
         <!-- GRID 3 Columnas - Information del partido -->
         <div class="container">
             <div class="row" style="height: 900px;">
-                <div class="col-lg-5 text-center" style="background-color: aquamarine;">
+                <div class="col-lg-5 text-center" style="background-color: #f7eee5;">
+                    <div class="d-flex justify-content-center" style="width: 300px; margin: auto; padding-top: 15px;">
+                        <img src="/images/stock_photo.jpg" style="display: inline-block;" alt="..." width="286px">
+                    </div>
                     <p class="fs-2">Descripcion</p>
                     <p><%= partido.descripcion %> </p>
                 </div>
-                <div class="col text-center d-flex flex-column justify-content-evenly align-items-center" style="background-color: hotpink;">
+                <div class="col text-center d-flex flex-column justify-content-evenly align-items-center" style="background-color: #fffdfb;">
+                    <% for (const miembro of partido.miembros) { %> 
                     <div class="card" style="width: 18rem;">
                         <img src="/images/stock_photo.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title">Nombre Miembro</h5>
-                          <p class="card-text">Posicion dentro del partido</p>
+                            <h5 class="card-title"><%= miembro.nombre %> <%= miembro.apellido %>  </h5>
+                          <p class="card-text"><%= miembro.puesto %> </p>
                         </div>
                       </div>
-                      <div class="card" style="width: 18rem;">
-                        <img src="/images/stock_photo.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Nombre Miembro</h5>
-                          <p class="card-text">Posicion dentro del partido</p>
-                        </div>
-                      </div>
-                      <div class="card" style="width: 18rem;">
-                        <img src="/images/stock_photo.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Nombre Miembro</h5>
-                          <p class="card-text">Posicion dentro del partido</p>
-                        </div>
-                      </div>
+                      <% } %> 
                 </div>
-                <div class="col text-center" style="background-color: lightsalmon;">
+                <div class="col text-center d-flex flex-column justify-content-evenly align-items-center" style="background-color: #fffdfb;">
                     <p>Descripcion</p>
                     <p><%= partido.descripcion %> </p>
                 </div>

@@ -23,6 +23,7 @@ router.get('/jp', function (req, res, next) {
 /* localhost:3000/partido/udc */
 router.get('/udc', function (req, res, next) {
     res.render('partido', { partido: partido2 });
+
 });
 
 module.exports = router;
