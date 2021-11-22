@@ -1,0 +1,94 @@
+body {
+    margin: 0px;
+}
+/*General page*/
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    height:979px;
+    background-color: #F1F0EF;
+}
+
+/*-----Party Description - Left Section-----*/
+.mp-section-party-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #FFD035;
+    border: 1px solid #eebc19;
+    flex: 2;
+}
+
+.mp-party-title {
+    flex: 1;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 35px;
+}
+
+.mp-party-flag {
+    flex: 1;
+    border: 1px solid #daac16;
+}
+
+.mp-party-description {
+    flex: 6;
+    padding: 7%;
+    text-align:justify;
+}
+
+/*-----Party Member Information - Middle Section-----*/
+.mp-section-member-information {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1;
+}
+
+.member-information {
+    text-align: center;
+}
+
+.member-image {
+    width: 200px;
+}
+
+
+/*-----Party Proposals - Right Section-----*/
+.mp-section-party-proposal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 3;
+}
+
+.mp-proposal-title {
+    flex: 1;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 35px;
+    border: 1px solid greenyellow;
+}
+
+
+.mp-proposal-proposals {
+    flex: 7;
+    border: 1px solid goldenrod;
+
+    text-align:justify;
+    padding: 7%;
+}
+
+.mp-proposal-downloadFile {
+    flex: 1;
+    border: 1px solid darkcyan;
+}
+
+.mp-party-socialmedia {
+    flex: 1;
+    border: 1px solid darkorchid;
+}
