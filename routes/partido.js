@@ -4,7 +4,7 @@ const { connection } = require('../db');
 
 /* localhost:3000/partido/ */
 router.get('/', function (req, res, next) {
-    res.send('HomePage Partidos');
+    res.render('partidoHomePage', { partido: partido1 });
 });
 
 
