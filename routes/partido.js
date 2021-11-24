@@ -4,7 +4,7 @@ const { connection } = require('../db');
 
 /* localhost:3000/partido/ */
 router.get('/', function (req, res, next) {
-    res.send('HomePage Partidos');
+    res.render('partidoHomePage', { partido: partido1 });
 });
 
 
@@ -34,7 +34,7 @@ let partido1 = {
     nombre: 'Juntos podemos',
     siglas: 'JP',
     logo: '/images/flag1.png',
-    descripcion: 'Somos un partido que cree en el cambio, y que desea que las generacione porvenir disfruten de esta institución tanto como lo hicimos nosotros. Somos estudiantes de sexto grado que se organizaron para dejar una institución mejor a las generaciones que están estudiann en la escuela y a todos esos con hermanitos menores que pronto van a ingresar. Nuestro enfoque será centrarnos en los mecanismos necesarios para garantizar que los estudiantes que requiren ayuda para poder comprar cuadernos y lapices reciban esa ayuda con fondos obtenidos por medio de distintas actividaes',
+    descripcion: 'Somos un partido que cree en el cambio, y que desea que las generacione porvenir disfruten de esta institución tanto como lo hicimos nosotros. Somos estudiantes de sexto grado que se organizaron para dejar una institución mejor a las generaciones que están estudiann en la escuela y a todos esos con hermanitos menores que pronto van a ingresar. Nuestro enfoque será centrarnos en los mecanismos necesarios para garantizar que los estudiantes que requiren ayuda para poder comprar cuadernos y lapices reciban esa ayuda con fondos obtenidos por medio de distintas actividades',
     color: '#e9d8a6',
     miembros: [
         {
