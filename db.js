@@ -7,13 +7,13 @@ let config = {
     authentication: {
         type: 'default',
         options: {
-            userName: '',    //Add your username
-            password: ''      //Add your password
+            userName: 'brandon',    //Add your username
+            password: 'ram123'      //Add your password
         }
     },
     options: {
         port: 1434,
-        database: '',       //Add your database
+        database: 'ProyectoDesarrolloWeb',       //Add your database
         rowCollectionOnRequestCompletion: true
     }
 }
