@@ -12,9 +12,9 @@ router.get('/', function (req, res, next) {
     });
 });
 
-//  localhost:3000/partido/variable
+//  localhost:3000/partido/variable/
 router.get('/:partido', function (req, res, next) {
-    res.render('partido', { partido: partido1 });
+    res.render('partido', { partido });
 });
 
 module.exports = router;
