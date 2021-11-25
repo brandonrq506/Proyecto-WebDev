@@ -26,22 +26,24 @@
 
 
         <!-- BODY -->
-        <% let descriptcion = partido.descripcion.split(".")[0] %> 
+        
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-1">
+            <% for (const partido of partidos) { %> 
             <div class="col">
-                <div class="card" style="border: 1px solid #ebddd0;">
+                <div class="card" style="border: 1px solid #ebddd0; ">
                     <a href="http://localhost:3000/partido/<%- partido.siglas %>"
                         class="text-decoration-none text-reset">
                         <img src="<%- partido.logo %>" class="card-img-top" alt="...">
-                        <div class="card-body" style="background-color: #fffdfb;">
+                        <div class="card-body text-center" style="background-color: #fffdfb;">
                             <h5 class="card-title">
                                 <%= partido.nombre %>
                             </h5>
-                            <p class="card-text"><%= descriptcion %> </p>
+                            <p class="card-text"><%= partido.descripcion %>.</p>
                         </div>
                     </a>
                 </div>
             </div>
+            <% } %>
         </div>
     </div>
     <script src="/javascripts/buscarPartido.js"></script>
