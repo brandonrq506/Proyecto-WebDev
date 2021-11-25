@@ -26,19 +26,20 @@
 
 
         <!-- BODY -->
-        
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-1">
             <% for (const partido of partidos) { %> 
             <div class="col">
                 <div class="card" style="border: 1px solid #ebddd0; ">
                     <a href="http://localhost:3000/partido/<%- partido.siglas %>"
                         class="text-decoration-none text-reset">
+                        <% if (partido.logo == '...') { partido.logo = '/images/stock_photo.jpg' } %> 
                         <img src="<%- partido.logo %>" class="card-img-top" alt="...">
                         <div class="card-body text-center" style="background-color: #fffdfb;">
                             <h5 class="card-title">
                                 <%= partido.nombre %>
                             </h5>
-                            <p class="card-text"><%= partido.descripcion %>.</p>
+                            <% let descriptcion = partido.descripcion.split(".")[0] %> 
+                            <p class="card-text"><%= descriptcion %>.</p>
                         </div>
                     </a>
                 </div>
