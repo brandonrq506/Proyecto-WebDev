@@ -7,13 +7,13 @@ let config = {
     authentication: {
         type: 'default',
         options: {
-            userName: 'artorias',    //Add your username
-            password: 'Contra22!'      //Add your password
+            userName: '',    //Add your username
+            password: ''      //Add your password
         }
     },
     options: {
         port: 1434,
-        database: 'webDev',       //Add your database
+        database: '',       //Add your database
         rowCollectionOnRequestCompletion: true
     }
 }
@@ -28,5 +28,4 @@ connection.on('connect', function (err) {
 });
 
 connection.connect();
-
 module.exports = { connection };
