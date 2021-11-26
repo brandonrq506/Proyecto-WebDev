@@ -12,11 +12,15 @@ router.get('/', function (req, res, next) {
     });
 });
 
+
+
 //  localhost:3000/partido/variable/
 router.get('/:partido', function (req, res, next) {
     let { partido } = req.params
-    getMiembros(1);
-    res.render('partido', { partido });
+    getPartido(partido)
+        .then((partidoConInfo) => {
+            res.render('partido', { partido: partidoConInfo });
+        })
 });
 
 module.exports = router;
@@ -58,15 +62,12 @@ function getParties() {
 
 //llamamos un partido por medio de las siglas en el URL.
 function getPartido(siglas) {
-    const partido = [];
+    const partido = createPartyTemplate();
+
     return new Promise((resolve, reject) => {
         let storedProcedure = '[dbo].[spGetPartido_PorSiglas]';
         const request = new Request(storedProcedure, function (err, rowCount) {
-            if (err) {
-                return reject(err);
-            } else {
-                resolve(partido);
-            }
+            if (err) { return reject(err); }
         });
 
         request.on('row', function (fila) {
@@ -75,26 +76,23 @@ function getPartido(siglas) {
             }
         });
 
-        request.on('doneProc', function (rowCount, more, returnStatus, rows) {
-            console.log(partido);
-            resolve(partido);
-        });
+        request.on('requestCompleted', function () {
+            resolve(getPropuestas(partido));
+        })
+
         request.addParameter('siglas', TYPES.VarChar, siglas);
         connection.callProcedure(request);
     });
 }
 
 //Llamamos todas las propuestas de un partido en específico
-function getPropuestas(partidoId) {
-    const listaPropuestas = [];
+function getPropuestas(partido) {
+
+    const propuestas = [];
     return new Promise((resolve, reject) => {
         let storedProcedure = '[dbo].[spGetPropuestas_PorPartido]';
         const request = new Request(storedProcedure, function (err, rowCount) {
-            if (err) {
-                return reject(err);
-            } else {
-                resolve(listaPropuestas);
-            }
+            if (err) { return reject(err); }
         });
 
         request.on('row', function (fila) {
@@ -102,29 +100,25 @@ function getPropuestas(partidoId) {
             for (const columna of fila) {
                 propuesta[columna.metadata.colName] = columna.value;
             }
-            listaPropuestas.push(propuesta);
+            propuestas.push(propuesta);
         });
 
-        request.on('doneProc', function (rowCount, more, returnStatus, rows) {
-            console.log(listaPropuestas);
-            resolve(listaPropuestas);
-        });
-        request.addParameter('partidoId', TYPES.Int, partidoId);
+        request.on('requestCompleted', function () {
+            partido.propuestas = propuestas;
+            resolve(getMiembros(partido));
+        })
+        request.addParameter('partidoId', TYPES.Int, partido.partidoId);
         connection.callProcedure(request);
     });
 }
 
 //Llamamos todos los miembros de un partido en específico
-function getMiembros(partidoId) {
+function getMiembros(partido) {
     const miembros = [];
     return new Promise((resolve, reject) => {
         let storedProcedure = '[dbo].[spGetMiembros_PorPartido]';
         const request = new Request(storedProcedure, function (err, rowCount) {
-            if (err) {
-                return reject(err);
-            } else {
-                resolve(miembros);
-            }
+            if (err) { return reject(err); }
         });
 
         request.on('row', function (fila) {
@@ -135,11 +129,26 @@ function getMiembros(partidoId) {
             miembros.push(miembro);
         });
 
-        request.on('doneProc', function (rowCount, more, returnStatus, rows) {
-            console.log(miembros);
-            resolve(miembros);
-        });
-        request.addParameter('partidoId', TYPES.Int, partidoId);
+        request.on('requestCompleted', function () {
+            partido.miembros = miembros;
+            resolve(partido);
+        })
+
+        request.addParameter('partidoId', TYPES.Int, partido.partidoId);
         connection.callProcedure(request);
     });
+}
+
+function createPartyTemplate() {
+    let partido = {
+        partidoId: 0,
+        nombre: '',
+        siglas: '',
+        logo: '',
+        descripcion: '',
+        color: '',
+        miembros: [],
+        propuestas: []
+    };
+    return partido;
 }

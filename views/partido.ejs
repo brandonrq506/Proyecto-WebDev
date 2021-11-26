@@ -68,15 +68,13 @@
                         </ul>
                     </div>
                 </div>
-
-
                 <!-- COLUMNA: Imagenes -->
                 <div class="col text-center d-flex flex-column justify-content-evenly align-items-center" style="background-color: #fffdfb;">
                     <% for (const miembro of partido.miembros) { %> 
                     <div class="card" style="width: 18rem;">
                         <img src="/images/stock_photo.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"><%= miembro.nombre %> <%= miembro.apellido %>  </h5>
+                            <h5 class="card-title"><%= miembro.nombre %> <%= miembro.primerApellido %>  </h5>
                           <p class="card-text"><%= miembro.puesto %> </p>
                         </div>
                       </div>
@@ -92,11 +90,10 @@
                     <div class="text-center">
                         <ul class="list-group list-group-flush list-group-numbered">
                             <% for (const propuesta of partido.propuestas) { %> 
-                                <li class="list-group-item" style="background-color: #fffdfb;"><%= propuesta.propuesta %> </li>
+                                <li class="list-group-item" style="background-color: #fffdfb;"><%= propuesta.descripcion %> </li>
                                 <% } %> 
                           </ul>
                     </div>
-
                 </div>
             </div>
         </div>
