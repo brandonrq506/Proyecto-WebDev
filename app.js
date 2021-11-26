@@ -36,34 +36,6 @@ app.post('/', function (req, res) { //la ruta corta
   let Request = require('tedious').Request;
   const { TYPES } = require('tedious');
 
-  /*------------------------------------------------------------------------------------------------------------*/
-  function getAuth() {
-    const partidos = [];
-    return new Promise((resolve, reject) => {
-      let storedProcedure = '[dbo].[DBGetAuth]';
-      const request = new Request(storedProcedure, function (err, rowCount) {
-        if (err) {
-          return reject(err);
-        } else {
-          resolve(partidos);
-        }
-      });
-      request.on('row', function (columns) {
-        let partido = {};
-        for (const column of columns) {
-          partido[column.metadata.colName] = column.value;
-        }
-        partidos.push(partido);
-      });
-      request.on('doneProc', function (rowCount, more, returnStatus, rows) {
-        resolve(partidos);
-      });
-      connection.callProcedure(request);
-    });
-  }
-  /*------------------------------------------------------------------------------------------------------------*/
-
-
   function authUser() {
     const allRows = [];
     return new Promise((resolve, reject) => {
