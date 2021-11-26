@@ -8,7 +8,7 @@ const { TYPES } = require('tedious');
 router.get('/', function (req, res, next) {
     let listaJSON = getParties();
     listaJSON.then(partidos => {
-        res.render('partidoHomePage', { partidos });
+        res.render('partidoHome', { partidos });
     });
 });
 
