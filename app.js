@@ -16,15 +16,22 @@ app.use(express.urlencoded({ extended: false })); //sirve para poder capturar da
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); //define nuestro directorio public, es por si uno migra el proyecto a otro equipo
 
+
+//Rutas de archivos JS en 'Routes'
 let indexRouter = require('./routes/index');
 let partidoRouter = require('./routes/partido');
 let registerRouter = require('./routes/register'); //test path, don't erase it
+let adminRouter = require('./routes/administrador');
+
 const { resolve } = require('path');
 const { rejects } = require('assert');
 
+//Links de nuestro website
 app.use('/', indexRouter);
 app.use('/partido', partidoRouter);
 app.use('/register', registerRouter);
+app.use('/ad', adminRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
