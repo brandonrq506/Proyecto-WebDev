@@ -19,11 +19,11 @@
     </div>
 
     <div align="center" id="formularioLogin">
-        <!--El action tenemos que reemplazarlo por lo que va a procesar el query de login-->
-        <form action="www.google.com" method="post" onsubmit="return validateCredentials();">
-            <input id="correoEstudiantil" type="email" name="correoEstudiantil" value=""
-                placeholder="Correo Estudiantil" required />
-            <input id="contrasena" type="password" name="contrasena" value="" placeholder="Contraseña" required />
+        <!--El action tenemos que reemplazarlo por lo que va a procesar el query de login (/)-->
+        <form action="/" method="POST" onsubmit="return validateCredentials();">
+            <input id="correoEstudiantil" type="email" name="correoEstudiantil" placeholder="Correo Estudiantil"
+                required />
+            <input id="contrasena" type="password" name="contrasena" placeholder="Contraseña" required />
             <br />
             <input type="submit" value="Iniciar sesión" class="btn_login" />
         </form>
