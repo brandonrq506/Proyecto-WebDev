@@ -3,8 +3,32 @@ const { connection } = require('../db');
 let Request = require('tedious').Request;
 const { TYPES } = require('tedious');
 
-
-
+/*
+Estos metodos retornan (Entre todos) un solo objeto Partido, este contendrá la información del partido, las propuestas y los miembros con toda la información.
+{
+    partidoId: 0,
+    nombre: '',
+    siglas: '',
+    logo: '',
+    descripcion: '',
+    color: '',
+    propuestas = [
+        {descripcion: ''},
+        {descripcion: ''},
+        {descripcion: ''}
+    ],
+    miembros = [
+        {
+            nombre: '',
+            primerApellido: '',
+            segundoApellido: '',
+            puesto: '',
+            imagen: ''
+        }
+    ]
+}
+//Un modelo de esta informacion se puede ver al final de esta pagina
+*/
 let getFullPartido = function getPartido(siglas) {
     const partido = createPartyTemplate();
 
@@ -83,6 +107,7 @@ function getMiembros(partido) {
     });
 }
 
+//Esta template la utilizan los metodos arriba para llenarla. No borrar.
 function createPartyTemplate() {
     let partido = {
         partidoId: 0,
