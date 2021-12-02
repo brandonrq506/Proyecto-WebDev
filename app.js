@@ -3,12 +3,15 @@ let express = require('express'); //Esto crea el server local
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+let methodOverride = require('method-override'); //Permite el uso de metodos DELETE, PUT, PATCH desde formularios
 
 let app = express(); //Server local
 
 // view engine setup - motor de plantillas
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(methodOverride('_method'));   //Define como llamaremos a los metodos que no sean GET/POST.
 
 app.use(logger('dev'));
 app.use(express.json()); //especifica que vamos a trabajar con json
