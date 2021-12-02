@@ -26,4 +26,12 @@ router.get('/partido/:partido', function (req, res, next) {
     res.render('Admin/partido');
 });
 
+router.delete('/partido/:partido', function (req, res) {
+    let { partido } = req.params;        //Should be an error because :partido son siglas, id is the actual Id
+    console.log(partido);
+    console.log(req.body);
+    //We should re-direct I just don't know where or how to do it
+});
+
+
 module.exports = router;
