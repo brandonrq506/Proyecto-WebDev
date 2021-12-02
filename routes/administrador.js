@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 //Estas son las llamadas a la base de datos que estamos utilizando en estas paginas de Administrador
-const { getListaPartidos } = require('../DataBase/getPartidos.js')
+const { getListaPartidos } = require('../DataBase/getPartidos.js');
+const { deletePartido } = require('../DataBase/deletePartido.js')
 
 //  localhost:3000/ad/
 router.get('/', function (req, res, next) {
@@ -27,10 +28,12 @@ router.get('/partido/:partido', function (req, res, next) {
 });
 
 router.delete('/partido/:partido', function (req, res) {
-    let { partido } = req.params;        //Should be an error because :partido son siglas, id is the actual Id
-    console.log(partido);
-    console.log(req.body);
-    //We should re-direct I just don't know where or how to do it
+    let { partido } = req.params;
+    deletePartido(partido)
+    .then(result => {
+        res.redirect('/ad/partido');
+    })
+    
 });
 
 
