@@ -5,7 +5,8 @@
     <title>Votación Estudiantil</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="stylesheets/indexLogin.css">
-    <script type="text/javascript" src="javascripts/validateLogin.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
@@ -17,15 +18,23 @@
             <a id="mailSoporte" href="mailto:mchavarriap628@ulacit.ed.cr">aquí.</a>
         </p>
     </div>
-
-    <div align="center" id="formularioLogin">
-        <!--El action tenemos que reemplazarlo por lo que va a procesar el query de login (/)-->
-        <form action="/" method="POST" onsubmit="return validateCredentials();">
-            <input id="correoEstudiantil" type="email" name="correoEstudiantil" placeholder="Correo Estudiantil"
-                required />
-            <input id="contrasena" type="password" name="contrasena" placeholder="Contraseña" required />
-            <br />
-            <input type="submit" value="Iniciar sesión" class="btn_login" />
+    <!-- Inputs -->
+    <div class="container">
+        <form method="POST" action="/home">
+            <!-- Email y Contraseña -->
+            <div class="row mt-2">
+                <div class="form-floating mb-3 col-md">
+                    <input type="email" class="form-control" id="correo" name="correo" placeholder="name@example.com" value="br.presi@gmail.com">
+                    <label class="ms-1" for="correo">Correo Estudiantil</label>
+                </div>
+                <div class="form-floating col-md">
+                    <input type="password" class="form-control" id="contra" name="contra" placeholder="Password" value="Brp13*qura">
+                    <label class="ms-1" for="contra">Contraseña</label>
+                </div>
+            </div>
+            <div class="row mt-1 d-flex justify-content-center">
+                <button style="width: 10%;" class="btn btn-primary" type="submit">Ingresar</button>
+            </div>
         </form>
     </div>
 
@@ -42,7 +51,7 @@
     </div>
 
 
-
+    <script type="text/javascript" src="javascripts/validateLogin.js"></script>
 </body>
 
 </html>
