@@ -19,8 +19,10 @@
     <div class="container">
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand"><%=partido.nombre%>
-                </a>
+                <div>
+                    <a href="#" id="previousPage"><i class="bi bi-arrow-left me-2"></i></a>
+                    <a class="navbar-brand"><%=partido.nombre%></a>
+                </div>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
                     <button class="btn btn-outline-secondary" type="button">Buscar</button>
@@ -100,6 +102,7 @@
         </div>
     </div>
     <script src="/javascripts/buscarPartido.js"></script>
+    <script src="/javascripts/previousPage.js"></script>
 </body>
 
 </html>
