@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 
 //Estas son las llamadas a la base de datos que estamos utilizando en estas paginas de Administrador
 const { getListaPartidos } = require('../DataBase/getPartidos.js');

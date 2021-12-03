@@ -8,7 +8,7 @@ const { getFullPartido } = require('../DataBase/getFullPartido.js')
 router.get('/', function (req, res, next) {
     getListaPartidos()
         .then(partidos => {
-            res.render('Estudiante/partidoHome', { partidos });
+            res.render('Estudiante/partidos', { partidos });
         });
 });
 
