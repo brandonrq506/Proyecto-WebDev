@@ -16,6 +16,8 @@ router.post('/home', function (req, res) {
     .then(estudiante => {
       if (estudiante.estudianteId > 0) {
         res.render('Estudiante/home', { estudiante });
+      } else {
+        //Si ningun estudiante hace match, que se debe hacer:
       }
     })
 });
