@@ -51,7 +51,6 @@ function validTag(element, message) {
 
     //Eliminate posible duplicates
     parentElem.removeChild(parentElem.lastChild);
-
     parentElem.append(div);
 
 }
