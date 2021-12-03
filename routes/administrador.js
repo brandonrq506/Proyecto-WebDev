@@ -21,6 +21,10 @@ router.get('/partido', function (req, res, next) {
         })
 });
 
+router.get('/partido/new', function (req, res) {
+    res.render('Admin/create')
+});
+
 // ======= NOT IMPLEMENTED YET ==========================
 //  localhost:3000/ad/partido/variable
 router.get('/partido/:partido', function (req, res, next) {
