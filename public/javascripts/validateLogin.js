@@ -40,6 +40,8 @@ button.addEventListener('onclick', () => {
 
 //=== Methodos encargados de mostrar validez ===
 function validTag(element, message) {
+    button.disabled = false;
+
     //Format our valid message
     let div = document.createElement('div');
     div.classList.add('valid-feedback');
@@ -47,6 +49,7 @@ function validTag(element, message) {
 
     //Format the element itself
     let parentElem = element.parentElement;
+    element.classList.remove('is-invalid');
     element.classList.add('is-valid');
 
     //Eliminate posible duplicates
@@ -56,12 +59,15 @@ function validTag(element, message) {
 }
 
 function invalidTag(element, message) {
+    button.disabled = true;
+
     let div = document.createElement('div');
     div.classList.add('invalid-feedback');
     div.setAttribute('id', `invalid${element.innerText}`);
     div.innerText = message;
 
     let parentElem = element.parentElement;
+    element.classList.remove('is-valid');
     element.classList.add('is-invalid');
 
     parentElem.removeChild(parentElem.lastChild);
