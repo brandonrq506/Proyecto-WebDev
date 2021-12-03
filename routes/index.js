@@ -5,7 +5,7 @@ const { connection } = require('../db');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index');
+  res.render('Estudiante/index');
 });
 
 module.exports = router;
