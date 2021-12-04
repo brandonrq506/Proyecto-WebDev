@@ -18,6 +18,9 @@ router.post('/home', function (req, res) {
         res.render('Estudiante/home', { estudiante });
       } else {
         //Si ningun estudiante hace match, que se debe hacer:
+
+        //Con un addEventListener('submit', func(e) { e.preventDefault(); }) para hacer el login del admin
+        //O se podria hacer en al base de datos con una columna que sea: isAdmin.
       }
     })
 });
