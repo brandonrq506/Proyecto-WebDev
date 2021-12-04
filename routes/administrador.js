@@ -21,9 +21,16 @@ router.get('/partido', function (req, res, next) {
         })
 });
 
+// localhost:3000/ad/partido/new
+// Formulario donde administrador agregará un nuevo partido
 router.get('/partido/new', function (req, res) {
     res.render('Admin/create')
 });
+
+router.post('/partido', function (req, res, next) {
+    console.log(req.body);
+});
+
 
 // ======= NOT IMPLEMENTED YET ==========================
 //  localhost:3000/ad/partido/variable
