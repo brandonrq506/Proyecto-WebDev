@@ -84,18 +84,22 @@
                                         <select id="estudiante" name="estudiante" class="form-select form-select-sm m-1"
                                             aria-label=".form-select-sm example">
                                             <option selected>Estudiante</option>
-                                            <option value="1">Brandon</option>
-                                            <option value="2">Manuel</option>
-                                            <option value="3">Fabian</option>
+                                            <% for (const estudiante of estudiantes) { %>
+                                                <option value="<%= estudiante.estudianteId %> ">
+                                                    <%= estudiante.nombre %>
+                                                        <%= estudiante.primerApellido %>
+                                                </option>
+                                                <% } %>
                                         </select>
 
                                         <select id="puesto" name="puesto" class="form-select form-select-sm m-1"
                                             aria-label=".form-select-sm example">
                                             <option selected>Puesto</option>
                                             <option value="1">Presidente</option>
-                                            <option value="2">Secretario</option>
-                                            <option value="3">Tesorero</option>
-                                            <option value="3">Vice-Presidente</option>
+                                            <option value="2">Vice-Presidente</option>
+                                            <option value="3">Secretario</option>
+                                            <option value="4">Tesorero</option>
+                                            <option value="5">Vocal</option>
                                         </select>
                                     </li>
                                 </ul>
