@@ -48,7 +48,7 @@
                             <div class="col">
                                 <div class="form-floating">
                                     <input type="text" class="form-control form-control-sm" id="siglas" name="siglas"
-                                        placeholder="name@example.com" value="" disabled readonly>
+                                        placeholder="name@example.com" value="">
                                     <label for="siglas">Siglas</label>
                                 </div>
                             </div>
@@ -75,32 +75,32 @@
                     <div class="col text-center d-flex flex-column justify-content-evenly align-items-center"
                         style="background-color: #fffdfb; border: 1px #ebddd0 solid;">
                         <!-- Card style -->
-                        <% for (let i = 0; i < 3; i++) {%> 
-                        <div class="card" style="width: 18rem;">
-                            <img src="/images/file_photo.jpg" class="card-img-top" alt="...">
+                        <% for (let i=0; i < 3; i++) {%>
+                            <div class="card" style="width: 18rem;">
+                                <img src="/images/file_photo.jpg" class="card-img-top" alt="...">
 
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">
-                                    <select id="estudiante" name="estudiante" class="form-select form-select-sm m-1"
-                                        aria-label=".form-select-sm example">
-                                        <option selected>Estudiante</option>
-                                        <option value="1">Brandon</option>
-                                        <option value="2">Manuel</option>
-                                        <option value="3">Fabian</option>
-                                    </select>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <select id="estudiante" name="estudiante" class="form-select form-select-sm m-1"
+                                            aria-label=".form-select-sm example">
+                                            <option selected>Estudiante</option>
+                                            <option value="1">Brandon</option>
+                                            <option value="2">Manuel</option>
+                                            <option value="3">Fabian</option>
+                                        </select>
 
-                                    <select id="puesto" name="puesto" class="form-select form-select-sm m-1"
-                                        aria-label=".form-select-sm example">
-                                        <option selected>Puesto</option>
-                                        <option value="1">Presidente</option>
-                                        <option value="2">Secretario</option>
-                                        <option value="3">Tesorero</option>
-                                        <option value="3">Vice-Presidente</option>
-                                    </select>
-                                </li>
-                            </ul>
-                        </div>
-                        <% } %> 
+                                        <select id="puesto" name="puesto" class="form-select form-select-sm m-1"
+                                            aria-label=".form-select-sm example">
+                                            <option selected>Puesto</option>
+                                            <option value="1">Presidente</option>
+                                            <option value="2">Secretario</option>
+                                            <option value="3">Tesorero</option>
+                                            <option value="3">Vice-Presidente</option>
+                                        </select>
+                                    </li>
+                                </ul>
+                            </div>
+                            <% } %>
                     </div>
 
                     <!-- COLUMNA: Propuestas -->
@@ -144,6 +144,9 @@
             </div>
         </form>
     </div>
+    <script src="/javascripts/buscarPartido.js"></script>
+    <script src="/javascripts/previousPage.js"></script>
+    <script src="/javascripts/validateParty.js"></script>
 </body>
 
 </html>
