@@ -37,10 +37,7 @@ function setPropuestas(partido) {
         const options = { keepNulls: true };
 
         const bulkLoad = connection.newBulkLoad('propuesta', options, function (error, rowCount) {
-            console.log('inserted %d rows', rowCount);
-            if(rowCount > 0) {
-                resolve(rowCount)
-            }
+            resolve(rowCount)
         });
 
         // setup your columns - always indicate whether the column is nullable
@@ -64,10 +61,7 @@ function setMiembros(partido) {
         const options = { keepNulls: true };
 
         const bulkLoad = connection.newBulkLoad('miembro', options, function (error, rowCount) {
-            console.log('inserted %d rows', rowCount);
-            if (rowCount > 0) {
-                resolve(setPropuestas(partido))
-            }
+            resolve(setPropuestas(partido))
         });
 
         // setup your columns - always indicate whether the column is nullable
