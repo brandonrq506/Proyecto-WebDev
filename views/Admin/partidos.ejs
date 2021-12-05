@@ -42,7 +42,7 @@
                         <!-- Seccion de Botones dentro de las cartas -->
                         <div class="mt-2">
                             <form method="POST" action="/ad/partido/<%= partido.partidoId %>?_method=DELETE ">
-                                <a href="http://localhost:3000/ad/partido/<%- partido.siglas %> "
+                                <a href="http://localhost:3000/ad/partido/<%-partido.siglas%> "
                                     class="card-link btn btn-outline-primary">Editar</a>
                                 <button class="btn btn-outline-danger">Eliminar</button>
                             </form>
