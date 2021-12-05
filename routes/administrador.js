@@ -25,7 +25,6 @@ router.get('/partido', function (req, res, next) {
 });
 
 // localhost:3000/ad/partido/new
-// Formulario donde administrador agregará un nuevo partido
 router.get('/partido/new', function (req, res) {
     getEstudiantes()
         .then(estudiantes => {
@@ -36,7 +35,7 @@ router.get('/partido/new', function (req, res) {
 router.post('/partido', function (req, res, next) {
     createPartido(req.body)
         .then(result => {
-            setTimeout(() => {res.redirect('/ad/partido/')}, 50);
+            setTimeout(() => { res.redirect('/ad/partido/') }, 50);
         })
 });
 
@@ -55,7 +54,6 @@ router.delete('/partido/:partido', function (req, res) {
         .then(result => {
             res.redirect('/ad/partido');
         })
-
 });
 
 
