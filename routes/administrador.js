@@ -34,7 +34,10 @@ router.get('/partido/new', function (req, res) {
 });
 
 router.post('/partido', function (req, res, next) {
-    console.log(req.body);
+    createPartido(req.body)
+        .then(result => {
+            setTimeout(() => {res.redirect('/ad/partido/')}, 50);
+        })
 });
 
 
