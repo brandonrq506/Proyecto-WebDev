@@ -3,6 +3,7 @@ let express = require('express'); //Esto crea el server local
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
+let methodOverride = require('method-override'); //Permite el uso de metodos DELETE, PUT, PATCH desde formularios
 
 let app = express(); //Server local
 
@@ -10,9 +11,11 @@ let app = express(); //Server local
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(methodOverride('_method'));   //Define como llamaremos a los metodos que no sean GET/POST.
+
 app.use(logger('dev'));
 app.use(express.json()); //especifica que vamos a trabajar con json
-app.use(express.urlencoded({ extended: false })); //sirve para poder capturar datos del formulario sin errores
+app.use(express.urlencoded({ extended: true })); //sirve para poder capturar datos del formulario sin errores
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public'))); //define nuestro directorio public, es por si uno migra el proyecto a otro equipo
 
@@ -50,74 +53,3 @@ app.use(function (err, req, res, next) {
 });
 
 module.exports = app;
-
-
-
-
-
-
-
-
-
-
-
-/**===================================================================== */
-/*Autenticación*/
-app.post('/', function (req, res) { //la ruta corta
-  const { connection } = require('./db');
-  let user = req.body.correoEstudiantil;
-  let pass = req.body.contrasena;
-  console.log("[ " + user + " - " + pass + " ]");
-
-  let Request = require('tedious').Request;
-  const { TYPES } = require('tedious');
-
-  function authUser() {
-    const allRows = [];
-    return new Promise((resolve, reject) => {
-      let storedProcedure = '[dbo].[DBGetAuth]';
-      const request = new Request(storedProcedure, function (err, rowCount) {
-        console.log('Row Count ' + rowCount);
-        if (rowCount == 0) {
-          console.log('Estamos en el err row count 0');
-          reject(err);
-        } else {
-          resolve(allRows);
-        }
-
-      });//request
-
-      request.on('row', function (columns) {
-        //let rowObject = {};
-        for (const column of columns) {
-          allRows[column.metadata.colName] = column.value;
-        }
-        console.log(allRows);// OJO
-      });//request.on row
-
-      request.on('doneProc', function (rowCount, more, returnStatus, rows) { //preguntarle a Brandon que hace esto
-        resolve(allRows);
-      });//request.on doneProc
-
-      connection.callProcedure(request);
-
-    });//promise
-  }//authUser
-
-  let listaJSON = authUser();
-  listaJSON.then(users => {
-
-    console.log('user ID ' + users.id);
-
-    if (users.id == undefined) {
-      res.send(`Error - Auth`);
-    } else {
-      res.render('registerT'); //archivo ejs
-    }
-
-  }).catch(noData => {
-    res.send(`Error - Auth`);
-  });
-
-});//app.post
-/**===================================================================== */
