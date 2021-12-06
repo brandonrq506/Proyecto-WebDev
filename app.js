@@ -23,8 +23,8 @@ app.use(express.static(path.join(__dirname, 'public'))); //define nuestro direct
 //Rutas de archivos JS en 'Routes'
 let indexRouter = require('./routes/index');
 let partidoRouter = require('./routes/partido');
-let registerRouter = require('./routes/register'); //test path, don't erase it
 let adminRouter = require('./routes/administrador');
+let papeleta = require('./routes/papeleta');
 
 const { resolve } = require('path');
 const { rejects } = require('assert');
@@ -32,8 +32,8 @@ const { rejects } = require('assert');
 //Links de nuestro website
 app.use('/', indexRouter);
 app.use('/partido', partidoRouter);
-app.use('/register', registerRouter);
 app.use('/ad', adminRouter);
+app.use('/voto', papeleta);
 
 
 // catch 404 and forward to error handler
