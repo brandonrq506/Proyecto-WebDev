@@ -38,39 +38,47 @@
                 <!-- COLUMNA: Descripcion -->
                 <!-- <div class="col-lg-5 d-flex flex-column justify-content-start" style="<%- //partido.color %>"> -->
                 <div class="col col-lg-5 d-flex flex-column justify-content-evenly" style="background-color: #f7eee5;">
-                    <!-- Nombre y Siglas -->
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="form-floating">
-                                <input type="text" class="form-control form-control-sm" id="nombre" name="nombre"
-                                    placeholder="name@example.com" value="<%=partido.nombre%>">
-                                <label for="nombre">Nombre del partido</label>
+                    <form method="POST" action="/ad/partido/<%= partido.partidoId %>?_method=PATCH">
+                        <!-- Nombre y Siglas -->
+                        <div class="row">
+                            <div class="col-8">
+                                <input type="hidden" name="partidoId" value="<%=partido.partidoId%>" id="">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control form-control-sm" id="nombre" name="nombre"
+                                        placeholder="name@example.com" value="<%=partido.nombre%>">
+                                    <label for="nombre">Nombre del partido</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control form-control-sm" id="siglas" name="siglas"
+                                        placeholder="name@example.com" value="<%=partido.siglas%>">
+                                    <label for="siglas">Siglas</label>
+                                </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="form-floating">
-                                <input type="text" class="form-control form-control-sm" id="siglas" name="siglas"
-                                    placeholder="name@example.com" value="<%=partido.siglas%>">
-                                <label for="siglas">Siglas</label>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Imagen del partido -->
-                    <div class="" style="width: 300px; margin: 0px auto; padding-top: 15px;">
-                        <% if (partido.logo == '...') { partido.logo = '/images/stock_photo.jpg' } %> 
-                        <img src="<%- partido.logo %> " style="display: inline-block;" alt="..." width="286px">
-                    </div>
-                    <div class="text-center">
-                        <p class="fs-2">Descripcion</p>
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="descripcion"
-                                name="descripcion" style="height: 500px"><%= partido.descripcion %></textarea>
-                            <label for="descripcion">Descripción</label>
-                            <small id="emailHelp" class="form-text text-muted">7999 caracteres restantes.</small>
+                        <!-- Imagen del partido -->
+                        <div class="" style="width: 300px; margin: 0px auto; padding-top: 15px;">
+                            <% if (partido.logo == '...') { partido.logo = '/images/stock_photo.jpg' } %> 
+                            <img src="<%- partido.logo %> " style="display: inline-block;" alt="..." width="286px">
                         </div>
-                    </div>
+                        <div class="text-center">
+                            <p class="fs-2">Descripcion</p>
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Leave a comment here" id="descripcion"
+                                    name="descripcion" style="height: 500px"><%= partido.descripcion %></textarea>
+                                <label for="descripcion">Descripción</label>
+                                <small id="emailHelp" class="form-text text-muted">7999 caracteres restantes.</small>
+                            </div>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-warning">Actualizar</button>
+                        </div>
+                    </form>
                 </div>
+
+
 
                 <!-- COLUMNA: Imagenes -->
                 <div class="col text-center d-flex flex-column justify-content-evenly align-items-center" style="background-color: #fffdfb;">
@@ -90,6 +98,8 @@
                     <div class="text-center">
                         <p class="fs-2">Propuestas</p>
                     </div>
+                    <form method="POST" action="/ad/partido/<%= partido.partidoId %>?_method=PATCH">
+                        <input type="hidden" name="partidoId" value="<%=partido.partidoId%>" id="">
                     <% for (const propuesta of partido.propuestas) { %> 
                         <div class="form-floating">
                             <textarea class="form-control" placeholder="Leave a comment here" id="propuesta"
@@ -97,7 +107,11 @@
                             <label for="propuesta">Propuesta</label>
                             <small id="emailHelp" class="form-text text-muted">400 caracteres restantes.</small>
                         </div>
-                        <% } %> 
+                        <% } %>
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-warning">Actualizar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

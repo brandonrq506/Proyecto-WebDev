@@ -3,8 +3,9 @@ let router = express.Router();
 
 //Estas son las llamadas a la base de datos que estamos utilizando en estas paginas de Administrador
 const { getListaPartidos } = require('../DataBase/getPartidos.js');
-const { deletePartido } = require('../DataBase/deletePartido.js');
 const { createPartido } = require('../DataBase/createPartido.js');
+const { updatePartido } = require('../DataBase/updatePartido.js');
+const { deletePartido } = require('../DataBase/deletePartido.js');
 const { getFullPartido } = require('../DataBase/getFullPartido.js')
 const { getEstudiantes } = require('../DataBase/getEstudiantes.js');
 
@@ -48,6 +49,15 @@ router.get('/partido/:partido', function (req, res) {
             res.render('Admin/update', { partido: partidoConInfo });
         })
 });
+
+
+router.patch('/partido/:partido', function (req, res) {
+    updatePartido(req.body)
+        .then(result => {
+            res.redirect('/ad/partido/');
+        })
+});
+
 
 // localhost:3000/ad/partido/variable
 router.delete('/partido/:partido', function (req, res) {
