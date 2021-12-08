@@ -38,6 +38,25 @@
                 <!-- COLUMNA: Descripcion -->
                 <!-- <div class="col-lg-5 d-flex flex-column justify-content-start" style="<%- //partido.color %>"> -->
                 <div class="col col-lg-5 d-flex flex-column justify-content-evenly" style="background-color: #f7eee5;">
+                    <!-- Nombre y Siglas -->
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="form-floating">
+                                <input type="text" class="form-control form-control-sm" id="nombre" name="nombre"
+                                    placeholder="name@example.com" value="<%=partido.nombre%>">
+                                <label for="nombre">Nombre del partido</label>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-floating">
+                                <input type="text" class="form-control form-control-sm" id="siglas" name="siglas"
+                                    placeholder="name@example.com" value="<%=partido.siglas%>">
+                                <label for="siglas">Siglas</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Imagen del partido -->
                     <div class="" style="width: 300px; margin: 0px auto; padding-top: 15px;">
                         <% if (partido.logo == '...') { partido.logo = '/images/stock_photo.jpg' } %> 
                         <img src="<%- partido.logo %> " style="display: inline-block;" alt="..." width="286px">
@@ -50,30 +69,6 @@
                             <label for="descripcion">Descripción</label>
                             <small id="emailHelp" class="form-text text-muted">7999 caracteres restantes.</small>
                         </div>
-                    </div>
-                    <div style="margin-top: auto;">
-                        <ul class="list-inline d-flex justify-content-center">
-                            <li class="list-inline-item">
-                                <a href="https://twitter.com/home" target="_blank">
-                                    <i class="bi bi-twitter"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://www.reddit.com/" target="_blank">
-                                    <i class="bi bi-reddit"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://web.telegram.org/k/" target="_blank">
-                                    <i class="bi bi-telegram"></i>
-                                </a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
-                                    <i class="bi bi-youtube"></i>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
 
@@ -109,6 +104,7 @@
     </div>
     <script src="/javascripts/buscarPartido.js"></script>
     <script src="/javascripts/previousPage.js"></script>
+    <script src="/javascripts/validateParty.js"></script>
 </body>
 
 </html>
