@@ -7,7 +7,7 @@ let methodOverride = require('method-override'); //Permite el uso de metodos DEL
 
 let app = express(); //Server local
 
-global.config = require('./config'); //Variables globales
+global.config = require('./config'); //Variables globales para información del Logged Estudent
 
 // view engine setup - motor de plantillas
 app.set('views', path.join(__dirname, 'views'));

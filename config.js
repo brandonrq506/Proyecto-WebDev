@@ -8,8 +8,6 @@ let config = {
         votoRealizado: ''
     },
 
-
-
 };
 
 module.exports = config;
