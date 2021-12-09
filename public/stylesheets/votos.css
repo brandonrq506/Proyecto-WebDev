@@ -1,28 +1,56 @@
+body{
+   margin: 0;
+   font-family: sans-serif;
+   background-image: url(../images/papeletaU.jpg);
+   background-size: cover;
 
-h1{
-   color: "DarkBlue";
 }
-h2{
-   color: "DarkBlue";
+
+#encabezado{
+   margin-bottom: 100px;
+   padding-top: 40px;
+   padding-bottom: 20px;
+   color: #FFFFFF;
+   background-color: #0d6efd; /*rgb(51, 0, 38)*/ 
+   opacity: 0.8;
+   left: 50px;
+   right: 50px; 
 }
-#fondo
-{
+
+img{
+   width:500px;
+   height:250px;
+   border-radius: 10px;
+}
+
+#fondo{
   background-attachment: fixed;
+  background-size: cover;
+}
+
+/*#image1{ 
 
 }
 
-#image1
-{ 
+#image2{ 
 
 }
 
-#image2
-{ 
+#image3{
 
+}	*/
+
+#pieDePagina{
+   background-color: #0d6efd;
+   color: #FFFFFF;
+   text-align: center; 
+   padding-top: 20px;
+   padding-bottom: 15px;
+   position: fixed;  
+   width: 100%;
+   left: 0px;
+   right: 0px;  
+   bottom: 0px;   
+   margin-top: 50px;
 }
-
-#image3
-{
-
-}	
 
