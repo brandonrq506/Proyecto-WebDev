@@ -13,7 +13,7 @@ let config = {
     },
     options: {
         port: 1434,
-        database: 'WebDev',       //Add your database
+        database: 'ProyectoDesarrolloWeb',       //Add your database
         rowCollectionOnRequestCompletion: true
     }
 }
