@@ -1,0 +1,34 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    background-image: url(../images/loginBackgroundBN.jpg);
+    background-size: cover;
+}
+
+#mailSoporte {
+    color: #ffffff;
+
+}
+
+#mensajeInicio{
+    padding-top: 40px;
+    padding-bottom: 20px;
+    color: #FFFFFF;
+    background-color: #0d6efd; /*rgb(51, 0, 38)*/ 
+    opacity: 0.8;
+    left: 50px;
+    right: 50px; 
+}
+
+#pieDePagina{
+    background-color: #0d6efd;
+    color: #FFFFFF;
+    text-align: center; 
+    padding-top: 20px;
+    padding-bottom: 15px;
+    position: fixed;  
+    width: 100%;
+    left: 0px;
+    right: 0px;  
+    bottom: 0px;   
+}
