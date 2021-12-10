@@ -43,13 +43,14 @@ function setPropuestas(partido) {
         // setup your columns - always indicate whether the column is nullable
         bulkLoad.addColumn('descripcion', TYPES.NVarChar, { length: 400, nullable: false });
         bulkLoad.addColumn('partido', TYPES.Int, { nullable: false });
+        bulkLoad.addColumn('propuestaId', TYPES.Int, { nullable: true });
 
         // execute
         connection.execBulkLoad(bulkLoad, [
-            { descripcion: partido.propuesta[0], partido: partido.partido },
-            { descripcion: partido.propuesta[1], partido: partido.partido },
-            { descripcion: partido.propuesta[2], partido: partido.partido },
-            { descripcion: partido.propuesta[3], partido: partido.partido }
+            { descripcion: partido.propuesta[0], partido: partido.partido, propuestaId: 1 },
+            { descripcion: partido.propuesta[1], partido: partido.partido, propuestaId: 2 },
+            { descripcion: partido.propuesta[2], partido: partido.partido, propuestaId: 3 },
+            { descripcion: partido.propuesta[3], partido: partido.partido, propuestaId: 4 }
         ]);
     });
 }

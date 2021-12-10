@@ -3,9 +3,10 @@ let router = express.Router();
 
 //Estas son las llamadas a la base de datos que estamos utilizando en estas paginas de Administrador
 const { getListaPartidos } = require('../DataBase/getPartidos.js');
-const { deletePartido } = require('../DataBase/deletePartido.js');
 const { createPartido } = require('../DataBase/createPartido.js');
-
+const { updatePartido } = require('../DataBase/updatePartido.js');
+const { deletePartido } = require('../DataBase/deletePartido.js');
+const { getFullPartido } = require('../DataBase/getFullPartido.js')
 const { getEstudiantes } = require('../DataBase/getEstudiantes.js');
 
 //  localhost:3000/ad/
@@ -40,12 +41,23 @@ router.post('/partido', function (req, res, next) {
 });
 
 
-// ======= NOT IMPLEMENTED YET ==========================
 //  localhost:3000/ad/partido/variable
-router.get('/partido/:partido', function (req, res, next) {
-    let { partido } = req.params;
-    res.render('Admin/partido');
+router.get('/partido/:partido', function (req, res) {
+    let { partido } = req.params
+    getFullPartido(partido)
+        .then((partidoConInfo) => {
+            res.render('Admin/update', { partido: partidoConInfo });
+        })
 });
+
+
+router.patch('/partido/:partido', function (req, res) {
+    updatePartido(req.body)
+        .then(result => {
+            res.redirect('/ad/partido/');
+        })
+});
+
 
 // localhost:3000/ad/partido/variable
 router.delete('/partido/:partido', function (req, res) {

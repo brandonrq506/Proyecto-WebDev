@@ -30,7 +30,7 @@
         <% for (const partido of partidos) { %>
         <div class="col">
             <div class="card" style="border: 1px solid #ebddd0;">
-                <a href="http://localhost:3000/partido/<%- partido.siglas %>" class="text-decoration-none text-reset">
+                <a href="http://localhost:3000/ad/partido/<%- partido.siglas %>" class="text-decoration-none text-reset">
                     <% if (partido.logo=='...' ) { partido.logo='/images/stock_photo.jpg' } %>
                         <img src="<%- partido.logo %>" class="card-img-top" alt="...">
                 </a>
