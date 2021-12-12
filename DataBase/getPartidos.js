@@ -14,6 +14,7 @@ Este metodo retorna un Array de objetos 'Partido' con los siguientes valores:
     color: ''
 }
 */
+
 let getListaPartidos = function getParties() {
     const partidos = [];
     return new Promise((resolve, reject) => {

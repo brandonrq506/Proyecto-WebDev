@@ -21,5 +21,6 @@ router.get('/:partido', function (req, res, next) {
         })
 });
 
+
 //Exportamos los routers para que puedan ser utilizados por la app en app.js
 module.exports = router;
