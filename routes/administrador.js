@@ -8,6 +8,7 @@ const { updatePartido } = require('../DataBase/updatePartido.js');
 const { deletePartido } = require('../DataBase/deletePartido.js');
 const { getFullPartido } = require('../DataBase/getFullPartido.js')
 const { getEstudiantes } = require('../DataBase/getEstudiantes.js');
+const { getPartidosAndVotos } = require('../DataBase/getPartidosVotos.js');
 
 //  localhost:3000/ad/
 router.get('/', function (req, res, next) {
@@ -68,5 +69,16 @@ router.delete('/partido/:partido', function (req, res) {
         })
 });
 
-
+/*localhosy:3000/ad/resultados*/
+router.get('/resultados', function (req, res, next) {
+    getPartidosAndVotos()
+        .then(partido => {
+            console.log(partido);
+            //res.send('hola');
+            res.render('Admin/resultados.ejs', { partido });
+        })
+        .catch(err => {
+            res.send('There was an error with this call');
+        })
+});
 module.exports = router;

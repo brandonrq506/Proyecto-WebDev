@@ -15,24 +15,30 @@ router.get('/', function (req, res, next) {
 router.post('/home', function (req, res) {
   let { correo, contra } = req.body;
   console.log(correo, contra);
-  login(correo, contra)
-    .then(estudiante => {
-      if (estudiante.estudianteId > 0) {
 
-        //Con esto agregamos la información del Logged User a nuestras variables globales.
-        global.config.LoggedEstudentData.estudianteId = estudiante.estudianteId;
-        global.config.LoggedEstudentData.correo = estudiante.correo;
-        global.config.LoggedEstudentData.contrasena = estudiante.contrasena;
-        console.log('Variables Globales actualizadas');
+  if (correo == "admin@ya.com" && contra == "Contra11!") {
+    res.render("Admin/index.ejs");
+  } else {
+    login(correo, contra)
+      .then(estudiante => {
+        if (estudiante.estudianteId > 0) {
 
-        res.render('Estudiante/home', { estudiante });
-      } else {
-        //Si ningun estudiante hace match, que se debe hacer:
+          //Con esto agregamos la información del Logged User a nuestras variables globales.
+          global.config.LoggedEstudentData.estudianteId = estudiante.estudianteId;
+          global.config.LoggedEstudentData.correo = estudiante.correo;
+          global.config.LoggedEstudentData.contrasena = estudiante.contrasena;
+          console.log('Variables Globales actualizadas');
 
-        //Con un addEventListener('submit', func(e) { e.preventDefault(); }) para hacer el login del admin
-        //O se podria hacer en al base de datos con una columna que sea: isAdmin.
-      }
-    });
+          res.render('Estudiante/home', { estudiante });
+        } else {
+          //Si ningun estudiante hace match, que se debe hacer:
+
+          //Con un addEventListener('submit', func(e) { e.preventDefault(); }) para hacer el login del admin
+          //O se podria hacer en al base de datos con una columna que sea: isAdmin.
+        }
+      });
+  }
+
 });
 
 router.post('/papeleta', function (req, res) {
