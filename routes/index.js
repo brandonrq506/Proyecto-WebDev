@@ -2,8 +2,9 @@ let express = require('express');
 let router = express.Router();
 
 const { login } = require('../DataBase/login.js');
-const { verificarVotoExistente } = require('../DataBase/getVotacionRealizada.js');
+//const { verificarVotoExistente } = require('../DataBase/getVotacionRealizada.js');
 const { realizarVoto } = require('../DataBase/addVoto.js');
+const { getValidacionAndPartidos } = require('../DataBase/getValidacionAndPartidos.js');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -41,17 +42,19 @@ router.post('/home', function (req, res) {
 
 });
 
+//renderiza la papeleta
 router.post('/papeleta', function (req, res) {
   let id = global.config.LoggedEstudentData.estudianteId;
   console.log('El ID del estudiante evaludado es: ' + id);
-  verificarVotoExistente(id)
-    .then(verificacionVoto => {
-      if (verificacionVoto.votoId > 0) {
+  getValidacionAndPartidos(id)
+    .then(partido => {
+      //console.log(partido);
+      if (partido.verificacionVoto[0] == null) {
+        console.log('Usted no ha votado');
+        res.render('Estudiante/papeleta', { partido }); //estudiante/votos
+      } else {
         console.log('Usted ya votó');
         res.render('Estudiante/yaVoto');
-      } else {
-        console.log('Usted no ha votado');
-        res.render('Estudiante/votos');
       }
     });
 });

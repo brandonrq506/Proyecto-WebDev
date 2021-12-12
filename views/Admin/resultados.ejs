@@ -19,36 +19,35 @@
     </nav>
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-3">
-        <% for (let i=0; i!=partido.partidosArray.length; i++) { %>
+        <% for (let i=0; i!=partido.partidosArray.length ; i++) { %>
             <div class="col">
-                <div class="card" style="border: 1px solid #000000;">
-                    <a href="http://localhost:3000/ad/partido/<%- partido.partidosArray[i].logo %>"
-                        class="text-decoration-none text-reset">
-                        <% if (partido.partidosArray[i].logo=='...' ) {
-                            partido.partidosArray[i].logo='/images/stock_photo.jpg' } %>
-                            <img src="<%- partido.partidosArray[i].logo %>" class="card-img-top" alt="...">
-                    </a>
-                    <div class="card-body text-center" style="background-color: #fffdfb;">
-                        <h5 class="card-title">
-                            <%= partido.partidosArray[i].nombre %>
-                        </h5>
-                        <% let descriptcion="Cantidad de votos obtenida: " %>
-                            <p class="card-text">
-                                <%= descriptcion %>
-                            </p>
+                <div class="card" style="border: 1px solid #636363; margin-bottom: 15px;">
+                    <% if (partido.partidosArray[i].logo=='...' ) {
+                        partido.partidosArray[i].logo='/images/stock_photo.jpg' } %>
+                        <img src="<%- partido.partidosArray[i].logo %>" class="card-img-top" alt="...">
+                        </a>
+                        <div class="card-body text-center" style="background-color: #fffdfb;">
+                            <h5 class="card-title">
+                                <%= partido.partidosArray[i].nombre %>
+                            </h5>
+                            <% let descriptcion="Soy consciente de que al presionar el botón estaré votando por: " %>
+                                <p class="card-text">
+                                    <%= descriptcion %>
+                                </p>
 
-                            <div class="mt-2">
-                                <form>
-                                    <button class="btn btn-outline-primary" style="width: 100px;">
-                                        <%= partido.votos[i].resultados %>
-                                    </button>
-                                </form>
-                            </div>
-                    </div>
+                                <div class="mt-2">
+
+                                    <form>
+                                        <input type="text" name="siglas" value="<%= partido.votos[i].resultados %>"
+                                            readonly style="margin-bottom: 10px; text-align: center;"><br>
+                                    </form>
+
+                                </div>
+                        </div>
                 </div>
             </div>
             <% } %>
-
+    </div>
 
 </body>
 

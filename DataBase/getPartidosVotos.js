@@ -2,9 +2,6 @@ const { connection } = require('../db');
 let Request = require('tedious').Request;
 const { TYPES } = require('tedious');
 
-
-//Intento fallido de generar un objeto con la información de los partidos y los votos. Se ve como la foto que mandé al grupo.
-
 let getPartidosAndVotos = function getParties() {
 
     const partidos = createTemplate();
