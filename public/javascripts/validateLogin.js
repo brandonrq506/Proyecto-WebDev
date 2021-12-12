@@ -1,36 +1,75 @@
-function validateCredentials() {
+//Declare variables to be used
+const correo = document.querySelector('#correo');
+const contra = document.querySelector('#contra');
+const button = document.querySelector('#btnSubmit');
 
-    let correo = document.getElementById("correoEstudiantil").value;
-    let password = document.getElementById("contrasena").value;
-    let correoValido = false;
-    let contrasenaValida = false;
+//Manuel REGEX for valid emails
+let REGEX = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
 
-    let resolution = "";
 
-    /*validación de correo*/
-
-    let re = /^([\da-z_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
-    let esValido = re.test(correo);
-    if (esValido == true) {
-        correoValido = true;
+//==== Listamos nuestros eventlisteners ====
+correo.addEventListener('input', () => {
+    //DB maximum allowed lenght is varchar(40)
+    if (correo.value.length > 40) {
+        invalidTag(correo, 'Accede la longitud maxima');
+    } else if (REGEX.test(correo.value)) {
+        validTag(correo, 'Correo valido');
+    } else {
+        invalidTag(correo, 'No cumple el formato indicado');
     }
-    else {
-        alert('El correo que ha ingresado no es valido.');
-        return false;
+});
+
+contra.addEventListener('input', () => {
+    //This is definitely not a valid password
+    if (contra.value.length == 0) {
+        invalidTag(contra, 'Espacio Vacio');
+        //DB minimum required length is varchar(8)
+    } else if (contra.value.length < 8) {
+        invalidTag(contra, 'Contraseña debe ser mayor a 8 caracteres');
+        //DB maximum allowed length is varchar(20)
+    } else if (contra.value.length > 20) {
+        invalidTag(contra, 'Contraseña debe ser menor a 20 caracteres');
+    } else {
+        validTag(contra, 'Contraseña valida');
     }
+});
 
-    /*Validación de contraseña*/
+button.addEventListener('onclick', () => {
+    console.log('Clicked')
+});
 
-    if (password.length == 0 || password.length < 8) {
-        alert('Por favor ingrese una contraseña valida.');
-        return false;
-    }
-    else {
-        contrasenaValida = true;
-    }
+//=== Methodos encargados de mostrar validez ===
+function validTag(element, message) {
+    button.disabled = false;
 
-    /*Confirmación de que ambos valores son validos*/
+    //Format our valid message
+    let div = document.createElement('div');
+    div.classList.add('valid-feedback');
+    div.innerText = message;
 
-    return correoValido == true && contrasenaValida == true;
+    //Format the element itself
+    let parentElem = element.parentElement;
+    element.classList.remove('is-invalid');
+    element.classList.add('is-valid');
 
+    //Eliminate posible duplicates
+    parentElem.removeChild(parentElem.lastChild);
+    parentElem.append(div);
+
+}
+
+function invalidTag(element, message) {
+    button.disabled = true;
+
+    let div = document.createElement('div');
+    div.classList.add('invalid-feedback');
+    div.setAttribute('id', `invalid${element.innerText}`);
+    div.innerText = message;
+
+    let parentElem = element.parentElement;
+    element.classList.remove('is-valid');
+    element.classList.add('is-invalid');
+
+    parentElem.removeChild(parentElem.lastChild);
+    parentElem.append(div);
 }

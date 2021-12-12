@@ -1,0 +1,58 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="stylesheets/votos.css">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+  <script src="javascripts/votos.js" type="text/javascript"></script>
+  <title>Papeleta Virtual</title>
+</head>
+
+<body class="container">
+
+  <div id="encabezado">
+    <h1 align="center" class="card-title" style="margin-top: 30px;" ;>Papeleta virtual</h1>
+    <p align="center" class="card-title" style="margin-bottom: 20px;">Hola, realiza tu voto seleccionando el partido
+      político que deseas apoyar</p>
+  </div>
+
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mt-3">
+    <% for (let i=0; i!=partido.partidosArray.length ; i++) { %>
+      <div class="col">
+        <div class="card" style="border: 1px solid #636363; margin-bottom: 15px;">
+          <% if (partido.partidosArray[i].logo=='...' ) { partido.partidosArray[i].logo='/images/stock_photo.jpg' } %>
+            <img src="<%- partido.partidosArray[i].logo %>" class="card-img-top" alt="...">
+            </a>
+            <div class="card-body text-center" style="background-color: #fffdfb;">
+              <h5 class="card-title">
+                <%= partido.partidosArray[i].nombre %>
+              </h5>
+              <% let descriptcion="Soy consciente de que al presionar el botón estaré votando por: " %>
+                <p class="card-text">
+                  <%= descriptcion %>
+                </p>
+
+                <div class="mt-2">
+                  <form action="/enviandoVoto" method="post">
+                    <input type="text" name="siglas" value="<%= partido.partidosArray[i].siglas %> " readonly
+                      style="margin-bottom: 10px; text-align: center;"><br>
+                    <input type="submit" class="btn btn-primary" value="Votar">
+                  </form>
+                </div>
+            </div>
+        </div>
+      </div>
+      <% } %>
+  </div>
+
+
+</body>
+
+</html>

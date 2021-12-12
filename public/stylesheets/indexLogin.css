@@ -5,15 +5,17 @@ body{
     background-size: cover;
 }
 
+img{
+    border-radius: 20px;
+}
+
 /*Banner de inicio de sesióncolor morado*/
 #mensajeInicio{
-    margin-top: 50px;
-    padding-top: 20px;
-    margin-left: 250px;
-    margin-right: 250px;
+    margin-bottom: 200px;
+    padding-top: 40px;
     padding-bottom: 20px;
     color: #FFFFFF;
-    background-color: #330026; /*rgb(51, 0, 38)*/ 
+    background-color: #0d6efd; /*rgb(51, 0, 38)*/ 
     opacity: 0.8;
     left: 50px;
     right: 50px; 
@@ -53,9 +55,9 @@ input{
 
 /*div de partidos politicos*/
 
-#partidos{
-    background-color: #330026;
-    color: white;
+#pieDePagina{
+    background-color: #0d6efd;
+    color: #FFFFFF;
     text-align: center; 
     padding-top: 20px;
     padding-bottom: 15px;

@@ -19,8 +19,10 @@
     <div class="container">
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand"><%=partido.nombre%>
-                </a>
+                <div>
+                    <a href="#" id="previousPage"><i class="bi bi-arrow-left me-2"></i></a>
+                    <a class="navbar-brand"><%=partido.nombre%></a>
+                </div>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
                     <button class="btn btn-outline-secondary" type="button">Buscar</button>
@@ -37,6 +39,7 @@
                 <!-- <div class="col-lg-5 d-flex flex-column justify-content-start" style="<%- //partido.color %>"> -->
                 <div class="col-lg-5 d-flex flex-column justify-content-start" style="background-color: #f7eee5;">
                     <div class="" style="width: 300px; margin: 0px auto; padding-top: 15px;">
+                        <% if (partido.logo == '...') { partido.logo = '/images/stock_photo.jpg' } %> 
                         <img src="<%- partido.logo %> " style="display: inline-block;" alt="..." width="286px">
                     </div>
                     <div class="text-center">
@@ -69,20 +72,18 @@
                     </div>
                 </div>
 
-
                 <!-- COLUMNA: Imagenes -->
                 <div class="col text-center d-flex flex-column justify-content-evenly align-items-center" style="background-color: #fffdfb;">
                     <% for (const miembro of partido.miembros) { %> 
                     <div class="card" style="width: 18rem;">
                         <img src="/images/stock_photo.jpg" class="card-img-top" alt="...">
                         <div class="card-body">
-                            <h5 class="card-title"><%= miembro.nombre %> <%= miembro.apellido %>  </h5>
+                            <h5 class="card-title"><%= miembro.nombre %> <%= miembro.primerApellido %>  </h5>
                           <p class="card-text"><%= miembro.puesto %> </p>
                         </div>
                       </div>
                       <% } %> 
                 </div>
-
 
                 <!-- COLUMNA: Propuestas -->
                 <div class="col d-flex flex-column justify-content-evenly align-items-center" style="background-color: #fffdfb;">
@@ -92,16 +93,16 @@
                     <div class="text-center">
                         <ul class="list-group list-group-flush list-group-numbered">
                             <% for (const propuesta of partido.propuestas) { %> 
-                                <li class="list-group-item" style="background-color: #fffdfb;"><%= propuesta.propuesta %> </li>
+                                <li class="list-group-item" style="background-color: #fffdfb;"><%= propuesta.descripcion %> </li>
                                 <% } %> 
                           </ul>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-    <script src="/javascripts/partido.js"></script>
+    <script src="/javascripts/buscarPartido.js"></script>
+    <script src="/javascripts/previousPage.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    background-image: url(../images/papeletaU.jpg);
+    background-size: cover;
+}
+
+/*Banner de inicio de sesióncolor morado*/
+#encabezado{
+    margin-top: 200px;
+    margin-bottom: 200px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    color: #000000;
+    background-color: #FFFFFF; /*rgb(51, 0, 38) */
+    opacity: 0.8;
+    left: 50px;
+    right: 50px; 
+    /*border: 3px solid #0d6efd;*/
+
+}
+
+#aceptar{
+    width:100px;
+    height:50px;
+}
+
+#pieDePagina{
+    background-color: #0d6efd;
+    color: #FFFFFF;
+    text-align: center; 
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: fixed;  
+    width: 100%;
+    left: 0px;
+    right: 0px;  
+    bottom: 0px;
+ }
